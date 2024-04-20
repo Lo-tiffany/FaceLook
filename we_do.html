@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>FaceLook</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- awesome fontfamily -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+   </head>
+   <!-- body -->
+   <body class="main-layout inner_page">
+      <!-- loader  -->
+      <div class="loader_bg">
+         <div class="loader"><img src="images/loading.gif" alt="" /></div>
+      </div>
+      <!-- end loader -->
+      <!-- header -->
+      <header>
+         <div class="header">
+            <div class="container-fluid">
+               <div class="row d_flex">
+                  <div class=" col-md-2 col-sm-3 col logo_section">
+                     <div class="full">
+                        <div class="center-desk">
+                           <div class="logo">
+                              <a href="index.html"><img src="images/logo.png" alt="#" /></a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-10 col-sm-9">
+                     <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarsExample04">
+                           <ul class="navbar-nav mr-auto">
+                              <li class="nav-item active">
+                                 <a class="nav-link" href="index.html">主頁面</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="we_do.html">系統流程</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="about.html">創作理念</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="portfolio.html">圖片偵測 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
+      <!-- end header -->
+      <!-- we_do -->
+      <div class="we_do" style="padding-top: 50px;">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage text_align_center">
+                     <h2>系統架構 & 流程 </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div id="we1" class="carousel slide" data-ride="carousel">
+                     <ol class="carousel-indicators">
+                        <li data-target="#we1" data-slide-to="0" class="active"></li>
+                        <li data-target="#we1" data-slide-to="1"></li>
+                        <li data-target="#we1" data-slide-to="2"></li>
+                        <li data-target="#we1" data-slide-to="3"></li>
+                     </ol>
+                     <div class="carousel-inner">
+                        <div class="carousel-item active">
+                           <div class="container-fluid">
+                              <div class="carousel-caption we1_do">
+                                 <div class="row">
+                                    <div class="col-md-4">
+                                       <div id="bo_ho" class="we_box text_align_left" style="margin-bottom: 0px;">
+                                          <i><img src="images/p1.png" alt="#"/></i>
+                                          <h3>DataSet <br>我們的資料集來源</h3>
+                                          <p>本次的資料集來源為Kaggle網站上的公開數據集，我們篩選出39428張樣本，分別為19787張真實圖像及19641張合成圖像，並以8:1:1的比例分為訓練集、驗證集和測試集，訓練YOLOv8模型。
+                                          </p>
+                                          <a class="read_more" href="we_do.html">Read More</a>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                       <div id="bo_ho" class="we_box text_align_left" style="margin-bottom: 0px;">
+                                          <i><img src="images/p2.png" alt="#"/></i>
+                                          <h3>Model <br>模型訓練 - YOLOv8</h3>
+                                          <p>由於YOLO在物件偵測的領域中已有一定的可行性，經過多方面考量後我們這次採用的模型為YOLOv8。透過資料增強的方式提高整體模型的準確度，最終成果的F1 score高達0.9844。
+                                          </p>
+                                          <a class="read_more" href="we_do.html">Read More</a>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                       <div id="bo_ho" class="we_box text_align_left" style="margin-bottom: 0px;">
+                                          <i><img src="images/we1.png" alt="#"/></i>
+                                          <h3>website <br>視覺化 - 使用者介面</h3>
+                                          <p>為了讓一般民眾也能立即使用我們所訓練出來的模型，因此我們透過網站的形式讓使用者可以從個人電腦上傳圖像，經系統串聯最佳模型以判斷圖像之真偽後回傳於使用者介面。
+                                          </p>
+                                          <a class="read_more" href="we_do.html">Read More</a>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="container-fluid">
+                              <div class="carousel-caption we1_do">
+                                 <div class="row">
+                                    <img src="images/preprocess.png" with="600" heigh="400" alt="一張圖片" style="margin-bottom: 12px;">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <a class="carousel-control-prev" href="#we1" role="button" data-slide="prev">
+                     <i class="fa fa-angle-left" aria-hidden="true"></i>
+                     <span class="sr-only">Previous</span>
+                     </a>
+                     <a class="carousel-control-next" href="#we1" role="button" data-slide="next">
+                     <i class="fa fa-angle-right" aria-hidden="true"></i>
+                     <span class="sr-only">Next</span>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end we_do -->
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/custom.js"></script>
+   </body>
+</html>
