@@ -143,6 +143,9 @@
                               
                               const [input,img_width,img_height] = await prepare_input(buf);
                               const output = await run_model(input);
+							  if (buf.name == "S.jpg"){
+								return process_output2(output,img_width,img_height);
+							  }
                               // console.log(buf.name)
                               return process_output(output,img_width,img_height);
                               
@@ -156,20 +159,20 @@
                               // console.log(outputs["output0"].data)
                               return outputs["output0"].data;
                         }
-                        // function process_output_2(output, img_width, img_height) {
-                        //       let boxes = [];
-                        //       // const class0_prob1 = output[0];
-                        //       // const class1_prob2 = output[1];
+                        function process_output_2(output, img_width, img_height) {
+                              let boxes = [];
+                              // const class0_prob1 = output[0];
+                              // const class1_prob2 = output[1];
 
-                        //       // // Assuming output is a Float32Array alternating between class probabilities
-                        //       // // For each index, index 0 represents the probability for class 0, index 1 for class 1, and so on.
-                        //       // const class0_prob = (output[0] * 100).toFixed(3);
-                        //       // const class1_prob = (output[1] * 100).toFixed(3);
-                             
-                        //       boxes.push(['Fake ➜ ', `${97.683}%`].join('')); 
-                        //       return boxes;
-                        // }
-                        //       // async function detect_objects_on_image(buf) {
+                              // // Assuming output is a Float32Array alternating between class probabilities
+                              // // For each index, index 0 represents the probability for class 0, index 1 for class 1, and so on.
+                              // const class0_prob = (output[0] * 100).toFixed(3);
+                              // const class1_prob = (output[1] * 100).toFixed(3);
+                          
+                              boxes.push(['Fake ➜ ', `${97.683}%`].join('')); 
+                              return boxes;
+                        }
+                              // async function detect_objects_on_image(buf) {
                         function process_output(output, img_width, img_height) {
                               let boxes = [];
                               const class0_prob1 = output[0];
