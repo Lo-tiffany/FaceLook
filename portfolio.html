@@ -144,7 +144,7 @@
                               const [input,img_width,img_height] = await prepare_input(buf);
                               const output = await run_model(input);
 							  if (buf.name == "S.jpg"){
-								return process_output2(output,img_width,img_height);
+								return process_output_2(output,img_width,img_height);
 							  }
                               // console.log(buf.name)
                               return process_output(output,img_width,img_height);
