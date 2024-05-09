@@ -140,31 +140,52 @@
                               draw_image_and_boxes(event.target.files[0],boxes);
                         })
                         async function detect_objects_on_image(buf) {
+                              
                               const [input,img_width,img_height] = await prepare_input(buf);
                               const output = await run_model(input);
+                              // console.log(buf.name)
                               return process_output(output,img_width,img_height);
+                              
                         }
                         async function run_model(input) {
+                              // console.log(input)
                               const model = await ort.InferenceSession.create("best.onnx");
                               input = new ort.Tensor(Float32Array.from(input),[1, 3, 224, 224]);
+                              // console.log(input)
                               const outputs = await model.run({images:input});
                               // console.log(outputs["output0"].data)
                               return outputs["output0"].data;
                         }
+                        // function process_output_2(output, img_width, img_height) {
+                        //       let boxes = [];
+                        //       // const class0_prob1 = output[0];
+                        //       // const class1_prob2 = output[1];
+
+                        //       // // Assuming output is a Float32Array alternating between class probabilities
+                        //       // // For each index, index 0 represents the probability for class 0, index 1 for class 1, and so on.
+                        //       // const class0_prob = (output[0] * 100).toFixed(3);
+                        //       // const class1_prob = (output[1] * 100).toFixed(3);
+                             
+                        //       boxes.push(['Fake ➜ ', `${97.683}%`].join('')); 
+                        //       return boxes;
+                        // }
+                        //       // async function detect_objects_on_image(buf) {
                         function process_output(output, img_width, img_height) {
                               let boxes = [];
+                              const class0_prob1 = output[0];
+                              const class1_prob2 = output[1];
 
                               // Assuming output is a Float32Array alternating between class probabilities
                               // For each index, index 0 represents the probability for class 0, index 1 for class 1, and so on.
                               const class0_prob = (output[0] * 100).toFixed(3);
                               const class1_prob = (output[1] * 100).toFixed(3);
-
+                              
                               // Check if class 0's probability is greater than 0.5
-                              if (class0_prob > 0.5) {
+                              if (class0_prob1 > 0.5) {
                                  boxes.push(['Fake ➜ ', `${class0_prob}%`].join('')); // Output 'fake' if class 0's probability is greater than 0.5
                               }
                               // Check if class 1's probability is greater than 0.6
-                              else if (class1_prob > 0.6) {
+                              else if (class1_prob2 > 0.6) {
                                  boxes.push(['Real ➜ ', `${class1_prob}%`].join('')); // Output 'real' if class 1's probability is greater than 0.6
                               } else {
                                  boxes.push(['undetermined', null].join('')); // Output 'undetermined' if neither condition is met
@@ -172,11 +193,11 @@
 
                               return boxes;
                         }
-                              async function detect_objects_on_image(buf) {
-                                    const [input,img_width,img_height] = await prepare_input(buf);
-                                    const output = await run_model(input);
-                                    return process_output(output,img_width,img_height);
-                                 }
+                              // async function detect_objects_on_image(buf) {
+                              //       const [input,img_width,img_height] = await prepare_input(buf);
+                              //       const output = await run_model(input);
+                              //       return process_output(output,img_width,img_height);
+                              //    }
                               async function prepare_input(buf) {
                               return new Promise(resolve => {
                                  const img = new Image();
@@ -203,6 +224,7 @@
                               })
                         }
                         function draw_image_and_boxes(file,boxes) {
+                           // console.log(file.name)
                            const img = new Image()
                            img.src = URL.createObjectURL(file);
                            img.onload = () => {
